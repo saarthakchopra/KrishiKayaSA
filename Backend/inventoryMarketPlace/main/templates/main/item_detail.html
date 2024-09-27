@@ -1,0 +1,82 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="content-section">    
+    <div style="text-align: center;">
+      {% if item.item_image %}
+        <img src="{{ item.item_image.url }}" width="200px" height="200px" style="border-radius: 5%;">
+      {% else %}
+        <img src="{% static 'noImage.png' %}" width="200px" height="200px" style="border-radius: 5%;">
+      {% endif %}
+    </div> 
+    <div class="row mx-auto justify-content-center">
+
+      <div class="card m-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Product Name</h5>
+          <div style="font-size: 30px;" class="text-center">
+            <span><i class="fab fa-product-hunt"></i></span>
+          </div>
+          <h3 class="text-center">{{ item.name }}</h6>
+        </div>
+      </div>
+
+      <div class="card m-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Quantity In Stock</h5>
+          <div style="font-size: 30px;" class="text-center">
+            <span><i class="fas fa-warehouse"></i></span>
+          </div>
+          <h3 class="text-center">{{ item.quantity_in_stock }}</h6>
+        </div>
+      </div>
+
+      <div class="card m-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Quantity Sold</h5>
+          <div style="font-size: 30px;" class="text-center">
+            <span><i class="fas fa-warehouse"></i></span>
+          </div>
+          <h3 class="text-center">{{ item.quantity_sold }}</h6>
+        </div>
+      </div>
+
+      <div class="card m-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Price Per {{ item.name }} (Unit or kg)</h5>
+          <div style="font-size: 30px;" class="text-center">
+            <span><i class="fas fa-dollar-sign"></i></span>
+          </div>
+          <h3 class="text-center">{{ item.cost_per_item }}</h6>
+        </div>
+      </div>
+
+      <div class="card m-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sales Or Revenue</h5>
+          <div style="font-size: 30px;" class="text-center">
+            <span><i class="fas fa-dollar-sign"></i></span>
+          </div>
+          <h3 class="text-center">{{ item.sales }}</h6>
+        </div>
+      </div>
+
+      <div class="card m-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Stock Date</h5>
+          <div style="font-size: 30px;" class="text-center">
+            <span><i class="fas fa-calendar-alt"></i></span>
+          </div>
+          <h3 class="text-center">{{ item.stock_date }}</h6>
+        </div>
+      </div>
+
+  </div>
+  <div style="text-align: center;">
+        <button class="custom-button" style ="margin: 20px;" onclick="window.location=`{% url 'update-item' item.id %}`">Update Item</button>
+        <button class="custom-button" style ="margin: 20px;" onclick="window.location=`{% url 'delete-item' item.id%}`">Delete Item</button>
+        <button class="custom-button" style ="margin: 20px;" onclick="window.location=`{% url 'dashboard' %}`">Go Back</button>
+  </div>
+</div>
+{% endblock %}

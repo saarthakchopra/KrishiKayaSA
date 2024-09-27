@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<br>
+<h1> Welcome {{request.user}} </h1>
+<br>
+<div>
+    <table border="1px solid black">
+        <tr>
+            <th> Item Name </th>
+            <th> Cost Per Item</th>
+            <th> Type </th>
+            <th> Status </th>
+            <!-- <th> Image </th> -->
+            <th> Details </th>
+            <th> Update </th>
+            <th> Delete Item </th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.cost_per_item}}</td>
+            <td>{{item.item_type}}</td>
+            <td>{{item.sale_status}}</td>
+            <!-- <td>
+            {% if item.item_image %}
+                {{item.item_image.url}}
+                <img src="{{main.item_image.url}}" width="200px" height="200px" style="border-radius: 5%;">
+            {% else %}
+                <img src="/static/noImage.png" width="200px" height="200px" style="border-radius: 5%;">
+            {% endif %}</td> -->
+            <td><a href = "{% url 'item-detail' item.id %}"> View </a></td>
+            <td><a href = "{% url 'update-item' item.id %}"> Update </a></td>
+            <td><a href = "{% url 'delete-item' item.id%}"> Delete </a></td>
+        </tr>
+        {% empty %}
+            <h1> No Items do display </h1>
+        {% endfor %}
+    </table>
+    No. of items: {{count}}
+    <br>
+    <!-- No. of items on sale: {{market_count}} -->
+</div>
+<a href = "{% url 'create-item' %}">Create new item</a>
+<!-- {% for item in items %}
+    {{item}}
+{% empty %}
+    <h3>No items in the list</h3>
+{% endfor %} -->
+{% endblock content %}

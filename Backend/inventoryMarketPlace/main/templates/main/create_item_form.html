@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %} 
+<!-- <h1> Item Form </h1>
+<a href="{% url 'dashboard' %}">Go Back</a>
+<form method = 'POST'enctype="multipart/form-data" action = ''>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type = 'submit' value = 'submit'>
+</form>
+<a href = "{% url 'dashboard' %}">Go Back</a> -->
+<div class="content-section">
+    {{ form.media }} 
+    <form method="POST" enctype="multipart/form-data">
+        <fieldset>
+            <legend class="border-bottom pb-2 mb-4 text-center">Item Form</legend>
+            {% csrf_token %}
+            <div class="form-group">
+                <label>{{form.name.label}}</label><br>
+                {{form.name}}<br><br>
+                <label>{{form.item_type.label}}</label><br>
+                {{form.item_type}}<br><br>
+                <label>{{form.cost_per_item.label}}</label><br>
+                {{form.cost_per_item}}<br><br>
+                <label>{{form.quantity_in_stock.label}}</label><br>
+                {{form.quantity_in_stock}}<br><br>
+                <label>{{form.quantity_sold.label}}</label><br>
+                {{form.quantity_sold}}<br><br>
+                <label>{{form.sale_status.label}}</label><br>
+                {{form.sale_status}}<br><br>
+                <label>{{form.item_image.label}}</label><br>
+                {{form.item_image}}<br><br>
+            </div>
+            <div style="text-align: center;">
+                <button class="custom-button" style ="margin: 20px;" type = 'submit'>Save</button>
+                <button class="custom-button" style ="margin: 20px;" onclick="window.location=`{% url 'dashboard' %}`">Go Back</button>
+          </div>
+      </fieldset>
+    </form>
+</div>
+{% endblock content %}
