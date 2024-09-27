@@ -1,0 +1,14 @@
+.weathercon{
+    background-image: url('../assets/bg.jpg');
+    margin: 0;
+    padding: 0;
+}
+
+.goback{
+    background-color: black;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    margin-top:3vmin
+}
