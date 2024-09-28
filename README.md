@@ -4,7 +4,7 @@
 
 ### 1. Clone the repository:
 ```
-git clone https://github.com/Arushi-Kapkoti/KrishiKaya.git cd KrishiKaya/Backend/inventoryMarketPlace
+git clone https://github.com/KhushiAgarwal22/KrishiKaya.git cd KrishiKaya/Backend/inventoryMarketPlace
 ```
 ### 2. Install the required packages for the Django backend:
 ```
