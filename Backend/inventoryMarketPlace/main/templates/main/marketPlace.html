@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="search" style="margin: 30px; font-size:22px;">
+    <form method="GET" class="filter-form">
+        <label for="state-filter">Filter by State:</label>
+        <select name="state" id="state-filter">
+            <option value="">All</option>
+            {% for state in states %}
+                <option value="{{ state }}">{{ state }}</option>
+            {% endfor %}
+        </select>
+    
+        <label for="type-filter">Filter by Item Type:</label>
+        <select name="type" id="type-filter">
+            <option value="">All</option>
+            {% for type in item_types %}
+                <option value="{{ type }}">{{ type }}</option>
+            {% endfor %}
+        </select>
+    
+        <button type="submit" class = "custom-button">Apply Filters</button>
+    </form>
+</div>
+
+<div class="outergrid">
+    {% for item in items %}
+    {% if item.sale_status == 'on_sale' %}
+    <div class="gridcell">
+        {% if item.item_image %}
+            <img src="{{ item.item_image.url }}" width="200px" height="200px" style="border-radius: 5%;">
+        {% else %}
+            <img src="/static/noImage.png" width="200px" height="200px" style="border-radius: 5%;">
+        {% endif %}
+        <div>
+            <h2>{{ item.name }}</h2>
+        </div>
+        <div class="details">
+            <b>Cost per kg: </b>{{ item.cost_per_item }}<br><br>
+            <b>Item type: </b>{{ item.item_type }}<br><br>
+            <!-- Display user information -->
+            <b>User Information:</b><br>
+            <b>State: </b>{{ item.user.state }}<br>
+            <b>Phone Number: </b>{{ item.user.phone_number }}<br>
+            <b>First Name: </b>{{ item.user.first_name }}<br>
+            <b>Last Name: </b>{{ item.user.last_name }}<br>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock content %}

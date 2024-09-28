@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<br>
+<h1> Welcome {{request.user}} </h1>
+<div class="content-section">
+    <p style = "padding: 5px; font-size: 25px;"><b>Total number of items: {{count}}</b></p>
+    
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity In Stock</th>
+            <th scope="col">Quantity Sold</th>
+            <th scope="col">Cost Per Item</th>
+            <th scope="col">Sales/Revenue</th>
+            <th scope="col">Stock Date</th>
+            <th scope="col">Sale Status</th>
+            <th scope="col">Last Sales Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for inventory in items %}
+            <tr style='cursor: pointer; cursor: hand;' onclick="window.location=`{% url 'item-detail' inventory.id %}`">
+              <th scope="row">{{ forloop.counter }}</th>
+              <th scope="col">{{ inventory.name }}</th>
+              <th scope="col">{{ inventory.quantity_in_stock }}</th>
+              <th scope="col">{{ inventory.quantity_sold }}</th>
+              <th scope="col">{{ inventory.cost_per_item }}</th>
+              <th scope="col">{{ inventory.sales }}</th>
+              <th scope="col">{{ inventory.stock_date }}</th>
+              <th scope="col">{{inventory.sale_status}}</th>
+              <th scope="col">{{ inventory.last_sales_date }}</th>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+    <button class="custom-button" onclick="window.location=`{% url 'create-item' %}`">Create New Item</button>
+    <button class="custom-button" style="margin-left: 20px;" onclick="window.location=`{% url 'analytics' %}`">Analytics</button>
+</div>
+
+{% endblock content %}

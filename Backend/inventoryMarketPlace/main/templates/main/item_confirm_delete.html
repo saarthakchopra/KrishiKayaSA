@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<form method = 'POST'>
+    {% csrf_token %}
+    <br><br><br>
+    <p style = "padding: 5px; font-size: 20px;"><b> Are you sure you want to delete {{item}}? </b></p>
+    <div style="text-align: center;">
+        <button class="custom-button" style ="margin: 20px;" type = 'submit'>Delete</button>
+        <button class="custom-button" style ="margin: 20px;" onclick="window.location=`{% url 'dashboard' %}`">Go Back</button>
+  </div>
+</form>
+{% endblock content %}

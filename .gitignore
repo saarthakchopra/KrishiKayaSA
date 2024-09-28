@@ -1,1 +1,8 @@
 Frontend/node_modules
+Backend/Pipfile
+Backend/Pipfile.lock
+Backend/inventoryMarketPlace/inventoryMarketPlace/__pycache__/
+Backend/inventoryMarketPlace/main/__pycache__/
+Backend/inventoryMarketPlace/main/migrations/
+Backend/inventoryMarketPlace/media/
+Backend/inventoryMarketPlace/db.sqlite3
