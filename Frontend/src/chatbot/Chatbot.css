@@ -1,69 +1,73 @@
-.chatcontainer{
-    display: flex;
-    margin: auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-chatbot{
     background-color: rgb(74, 3, 3);
-    width:60vw;
-    margin-top:2vmin;
-    border-radius:5px;
-    padding:2px;
-    gap:3vmin;
-}
-.subBtn{
-    position: relative;
-    left: -15%;
-}
+    max-width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgb(255, 198, 198);
+    max-height: 100vh;
 
-.backBtn{
+}
+.image-cover {
     position: absolute;
-    top: 32.5%;
-    left: 57%;
-    height: 7vmin;
-        font-size: 3vmin;
-            margin-bottom: 3vmin;
-                border-radius: 10px;
-                cursor: pointer;
-        color: rgb(76, 44, 5);
-        background-color: bisque; 
-}
-.btnn{
-    text-decoration: none;
-        color: rgb(76, 44, 5);
+    top: 0;
+    z-index: -22;
+    width: 100%; /* or any specific width */
+    height: 100%; /* adjust height as needed */
+    background-image: url('farm.jpg');
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
-.chatcontainer a{
-    text-decoration: none;
-    color:rgb(250, 225, 170)
-}
-.chatcontainer textarea{
-    width: 80%;
-    height:10vmin;
-    font-size: 2vmin;
-    padding:1vmin;
-    border: 2px solid bisque;
-}
-.chatcontainer button{
-    height:7vmin;
-    font-size: 3vmin;
-    color: rgb(76, 44, 5);
-    background-color:bisque ;
-    margin-bottom:3vmin;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.chatcontainer button:hover{
-    transform: scale(0.95);
+textarea{
+    resize: none;
+    width: 100%;
+    padding: 5px;
+    overflow-y: scroll;
+    border-radius: 5px;
 }
 .answer{
+    background-color: beige;
+    padding: 10px 25px;
+    border-radius: 5px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+.btns{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+    width: 100%;
+}
+.btns button{
+    height: 7vmin;
     font-size: 3vmin;
-    background-color: rgb(241, 220, 173);
-    width:60vw;
-    margin: auto;
-    margin-top:2vmin;
-    margin-bottom: 2vmin;
-    padding:1vmin;
+    margin-bottom: 3vmin;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: bisque;
+    color: rgb(76, 44, 5);
+    padding: 5px;
+    margin: 20px;
+    width: 50%;
+}
+.chatcontainer a {
+    text-decoration: none;
+}
+
+.btnn{
+    color:rgb(76, 44, 5);
+}   
+
+h1{
+    text-align: center;
+    color:bisque;
+    margin-bottom: 20px;
 }
