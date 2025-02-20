@@ -6,3 +6,4 @@ Backend/inventoryMarketPlace/main/__pycache__/
 Backend/inventoryMarketPlace/main/migrations/
 Backend/inventoryMarketPlace/media/
 Backend/inventoryMarketPlace/db.sqlite3
+Plant-disease/app/trained_model/plant_disease_prediction_model.h5
